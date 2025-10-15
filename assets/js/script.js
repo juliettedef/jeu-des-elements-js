@@ -51,13 +51,25 @@ function playGame(playerChoice, pcChoice) {
         pcScore++;
     }
 
-    document.querySelector(".resultat").textContent = resultat;
-    console.log(resultat)
-
     document.getElementById("player-score").textContent = playerScore;
     document.getElementById('pc-score').textContent = pcScore
 
     document.querySelector(".resultat").textContent = resultat;
+
+    if (playerScore === 10 || pcScore === 10) {
+        let endParty = "";
+
+        if (playerScore === 10) {
+            endParty = "Vous avez gagnez la partie"
+        } else {
+            endParty = "L'ordinateur a gagné la partie..."
+        }
+
+        document.querySelector(".resultat").textContent = endParty;
+
+        const buttons = document.querySelectorAll(".buttons button");
+        buttons.forEach(button => button.disabled = true);
+    }
 
 }
 
