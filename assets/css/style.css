@@ -75,3 +75,25 @@ body {
     color: #2d3436;
 }
 
+.score {
+    display: flex;
+    justify-content: center;
+    gap: 2rem;
+    font-size: 1.1rem;
+}
+
+#new-game {
+    background: #709775;
+    color: white;
+    border: none;
+    font-size: 1.1rem;
+    padding: 0.8rem 2rem;
+    border-radius: 5px;
+    cursor: pointer;
+    margin-top: 1rem;
+    transition: all 0.2s ease;
+}
+
+#new-game:hover {
+    transform: scale(1.1);
+}

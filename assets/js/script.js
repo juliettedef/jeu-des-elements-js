@@ -1,4 +1,3 @@
-
 let playerScore = 0;
 let pcScore = 0;
 
@@ -17,7 +16,7 @@ console.log("Pouvoir du PC :", powerPc());
 function powerPlayer(event) {
     const playerChoice = event.target.id;
     console.log("Le joueur a cliqué sur :", playerChoice);
-    
+
     const pcChoice = powerPc();
     console.log("L'ordinateur a choisi :", pcChoice)
 
@@ -60,7 +59,7 @@ function playGame(playerChoice, pcChoice) {
         let endParty = "";
 
         if (playerScore === 10) {
-            endParty = "Vous avez gagnez la partie"
+            endParty = "Vous avez gagné la partie"
         } else {
             endParty = "L'ordinateur a gagné la partie..."
         }
@@ -69,9 +68,31 @@ function playGame(playerChoice, pcChoice) {
 
         const buttons = document.querySelectorAll(".buttons button");
         buttons.forEach(button => button.disabled = true);
+
+        document.getElementById("new-game").style.display = "block";
+
     }
+}
+
+    // limitation de partie et nouvelle partie
+
+function resetGame() {
+    playerScore = 0
+    pcScore = 0
+
+    document.getElementById("player-score").textContent = playerScore;
+    document.getElementById("pc-score").textContent = pcScore;
+
+    document.querySelector(".resultat").textContent = "Nouvelle partie !"
+
+    const buttons = document.querySelectorAll(".buttons button");
+    buttons.forEach(button => (button.disabled = false));
+    document.getElementById("new-game").style.display = "none";
 
 }
+
+document.getElementById("new-game").addEventListener("click", resetGame);
+
 
 
 
