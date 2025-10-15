@@ -13,7 +13,11 @@ console.log("Pouvoir du PC :", powerPc());
 function powerPlayer(event) {
     const playerChoice = event.target.id;
     console.log("Le joueur a cliqué sur :", playerChoice);
-    return playerChoice;
+    
+    const pcChoice = powerPc();
+    console.log("L'ordinateur a choisi :", pcChoice)
+
+    playGame(playerChoice, pcChoice);
 }
 
 // récupération des clics sur les boutons
@@ -30,18 +34,21 @@ function playGame(playerChoice, pcChoice) {
     let resultat = "";
 
     if (playerChoice === pcChoice) {
-        resultat = `Égalité ! Vous avez tous les deux choisi ${playerChoice}.`;
+        resultat = `Égalité ! Vous avez tous les deux choisi l'élement ${playerChoice}.`;
     } else if (
         (playerChoice === "feu" && pcChoice === "terre") ||
         (playerChoice === "eau" && pcChoice === "feu") ||
         (playerChoice === "terre" && pcChoice === "eau")
     ) {
-        resultat = `Bravo ! ${playerChoice} bat ${pcChoice}.`;
+        resultat = `Bravo ! L'élement ${playerChoice} bat l'élément ${pcChoice}.`;
     } else {
-        resultat = `Perdu ! ${pcChoice} bat ${playerChoice}.`;
+        resultat = `Perdu ! L'élément ${pcChoice} bat l'élément ${playerChoice}.`;
     }
-}
 
+    document.querySelector(".resultat").textContent = resultat;
+    console.log(resultat)
+
+}
 
 
 
