@@ -1,3 +1,7 @@
+
+let playerScore = 0;
+let pcScore = 0;
+
 // fonction powerPC
 
 function powerPc() {
@@ -41,12 +45,19 @@ function playGame(playerChoice, pcChoice) {
         (playerChoice === "terre" && pcChoice === "eau")
     ) {
         resultat = `Bravo ! L'élement ${playerChoice} bat l'élément ${pcChoice}.`;
+        playerScore++;
     } else {
         resultat = `Perdu ! L'élément ${pcChoice} bat l'élément ${playerChoice}.`;
+        pcScore++;
     }
 
     document.querySelector(".resultat").textContent = resultat;
     console.log(resultat)
+
+    document.getElementById("player-score").textContent = playerScore;
+    document.getElementById('pc-score').textContent = pcScore
+
+    document.querySelector(".resultat").textContent = resultat;
 
 }
 
