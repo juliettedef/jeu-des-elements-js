@@ -6,12 +6,16 @@ function powerPc() {
 
 console.log("Pouvoir du PC :", powerPc());
 
+function powerPlayer(event) {
+    const playerChoice = event.target.id;
+    console.log("Le joueur a cliqué sur :", playerChoice);
+    return playerChoice;
+}
+
 const buttons = document.querySelectorAll(".buttons button");
+
 buttons.forEach(button => {
-    button.addEventListener("click", (event) => {
-        const playerChoice = event.target.id;
-        console.log("Le joueur a cliqué sur :", playerChoice);
-    });
+    button.addEventListener("click", powerPlayer);
 });
 
 
